@@ -141,7 +141,7 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
 
   private void createShoe() {
     pending.add(
-        DeckOfCardsService.getInstance().newShoe(DEFAULT_DECKS_IN_SHOE)
+        DeckOfCardsService.getInstance().newShoe(decksPerShoe)
             .subscribeOn(Schedulers.from(executor))
             .subscribe((shoe) -> {
               randomizeShufflePoint(shoe);
@@ -250,7 +250,11 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
   @Override
   public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
     readSettings();
-    disposePending();
+    newGame();
+  }
+
+  public void newGame(){
+    shoeId = 0;
     startRound();
   }
 
