@@ -14,7 +14,9 @@
     android:theme="@style/AppTheme">
     <activity
       android:name=".controller.fsm.SettingsActivity"
-      android:label="@string/title_activity_settings"></activity>
+      android:parentActivityName=".controller.ui.MainActivity"
+      android:label="@string/title_activity_settings"/>
+
     <activity android:name=".controller.ui.LoginActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
